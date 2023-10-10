@@ -3,7 +3,7 @@ import sys
 def install(package):
     subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
-
+# change
 install("psycopg2")
 install("pg8000")
 install("pandas")
