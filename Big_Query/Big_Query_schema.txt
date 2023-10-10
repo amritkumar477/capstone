@@ -1,0 +1,49 @@
+create or replace table star_schema.dim_order
+(orderid integer NOT nULL,
+order_status_update_timestamp timestamp NOT NULL,
+order_status string NOT NULL);
+
+
+create or replace table star_schema.dim_customer(
+customerid integer NOT NULL,
+name string NOT NULL,
+address_id integer NOT NULL,
+start_date date ,
+end_date date );
+
+
+create or replace table star_schema.fact_daily_orders(
+customerid integer NOT NULL,
+orderid	integer NOT NULL,
+order_received_timestamp timestamp NOT NULL,
+order_delivery_timestamp timestamp NOT NULL,
+pincode	integer NOT NULL,
+order_amount integer NOT NULL,
+item_count integer NOT NULL,
+order_delivery_time_seconds integer NOT NULL);
+
+
+create or replace table star_schema.dim_address(
+address_id integer NOT NULL,
+address string NOT NULL,
+city string NOT NULL,
+state string NOT NULL,
+pincode integer NOT NULL);
+
+
+create or replace table star_schema.dim_product(
+productid integer NOT NULL,
+productcode string NOT NULL,
+productname string NOT NULL,
+sku string NOT NULL,
+rate integer NOT NULL,
+isactive BOOL NOT NULL,
+start_date date,
+end_date date );
+
+
+create or replace table star_schema.f_order_details(
+orderid integer NOT NULL,
+order_delivery_timestamp timestamp NOT NULL,
+productid integer NOT NULL,
+quantity integer NOT NULL);

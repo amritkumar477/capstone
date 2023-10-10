@@ -1,0 +1,32 @@
+CREATE TABLE customer_master (
+    customerid INT PRIMARY KEY,
+    name VARCHAR(255),
+    address VARCHAR(255),
+    city VARCHAR(255),
+    state VARCHAR(255),
+    pincode VARCHAR(255),
+    update_timestamp TIMESTAMP
+);
+
+CREATE TABLE product_master (
+    productid INT PRIMARY KEY,
+    productcode VARCHAR(10),
+    productname VARCHAR(255),
+    sku VARCHAR(20),
+    rate INT,
+    isactive BOOLEAN
+);
+
+CREATE TABLE order_details (
+    orderid INT,
+    customerid INT,
+    order_status_update_timestamp TIMESTAMP,
+    order_status VARCHAR(255)
+);
+
+CREATE TABLE order_items (
+    orderid INT,
+    productid INT,
+    quantity INT
+);
+
